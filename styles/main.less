@@ -42,6 +42,7 @@ body {
 
 #main-content {
   background: #fff;
+
   padding: @baseline - 1px @baseline @baseline @baseline;
   .box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 }
@@ -102,6 +103,11 @@ b, strong {
   height: 500px;
   text-align: center;
   background:  #333 url("@{base-url}/images/background-image.png") repeat top left;
+//  to fill the full width
+  padding-left: @baseline + 1px;
+  padding-right: @baseline + 1px;
+  margin-top: -@baseline;
+  margin-left: -@baseline - 1px;
   &:before {
     content: '';
     display: inline-block;
@@ -118,8 +124,9 @@ b, strong {
     vertical-align: middle;
     width: 360px;
     height: 260px;
+    padding: 20px;
     background: ghostwhite;
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.6);
 
     /*    padding-bottom: @baseline - 4px;
         border-bottom: 4px double #ccc;
@@ -136,19 +143,25 @@ b, strong {
 
 #pop-title {
   .pop-title-text();
-//  color: @accent-color;
-  color:#d2d2d2;
-/*  padding-bottom: @baseline - 4px;
-  border-bottom: 4px double #ccc;*/
+  //  color: @accent-color;
+  color: #d2d2d2;
+  /*  padding-bottom: @baseline - 4px;
+    border-bottom: 4px double #ccc;*/
   margin-bottom: @baseline;
   text-align: center;
   background-color: #1D1D1D;
+  width: 100%;
+  //  to fill the full width
+  padding-left: @baseline + 1px;
+  padding-right: @baseline + 1px;
+  margin-left: -@baseline - 1px;
 }
+
 
 #main-content {
   width: 940px;
   margin: 0 auto;
-  border: 1px solid #ddd;
+//  border: 1px solid #ddd;
   background-color: #fff;
   position: relative;
   .box-shadow(0 0 15px rgba(0, 0, 0, 0.35) ~',' inset 0 0 50px rgba(0, 0, 0, 0.1));
