@@ -44,43 +44,19 @@
 
   {{#if_or title_visible description_visible}}
   <div class="left">
-
-      {{#if lightbox_enabled}}
-      <div class="my-lightbox-parent">
-          <div class="my-center">
-              <span><i class="icon icon-plus"/></span>
-          </div>
           <div class="content">
               {{{imageslider images src="{{{resize original_url width=324 height=243}}}" width="324" height="243" crop_single=true }}}
 
           </div>
-      </div>
-      {{else}}
-      <div class="content">
-          {{{imageslider images src="{{{resize original_url width=324 height=243}}}" width="324" height="243" crop_single=true }}}
-      </div>
-      {{/if}}
   </div>
   <div class="floated-parent-for-imagegroup-texts">
       {{{title}}}
       {{{description}}}
   </div>
   {{else}}
-
-  {{#if lightbox_enabled}}
-  <div class="my-lightbox-parent">
-      <div class="my-center">
-          <span><i class="icon icon-plus"/></span>
-      </div>
       <div class="content">
           {{{imageslider images src="{{{resize original_url width=928 height=486}}}" width="928" height="486" crop_single=true }}}
       </div>
-  </div>
-  {{else}}
-  <div class="content">
-      {{{imageslider images src="{{{resize original_url width=928 height=486}}}" width="928" height="486" crop_single=true }}}
-  </div>
-  {{/if}}
   {{{title}}}
   {{{description}}}
   {{/if_or}}
@@ -140,22 +116,10 @@
 
         {{#if_or title_visible description_visible}}
         <div class="left">
-
-            {{#if lightbox_enabled}}
-            <div class="my-lightbox-parent">
-                <div class="my-center">
-                    <span><i class="icon icon-plus"/></span>
-                </div>
-                <div class="content">
-                {{{imageslider images src="{{{resize original_url width=240 height=180}}}" width="240" height="180" crop_single=true }}}
-
-                </div>
-            </div>
-            {{else}}
             <div class="content">
             {{{imageslider images src="{{{resize original_url width=240 height=180}}}" width="240" height="180" crop_single=true }}}
             </div>
-                {{/if}}
+
         </div>
         <div class="floated-parent-for-imagegroup-texts">
             {{{title}}}
@@ -163,20 +127,10 @@
         </div>
         {{else}}
 
-        {{#if lightbox_enabled}}
-        <div class="my-lightbox-parent">
-            <div class="my-center">
-                <span><i class="icon icon-plus"/></span>
-            </div>
-            <div class="content">
-            {{{imageslider images src="{{{resize original_url width=688 height=516}}}" width="688" height="516" crop_single=true }}}
-        </div>
-        </div>
-        {{else}}
             <div class="content">
         {{{imageslider images src="{{{resize original_url width=688 height=516}}}" width="688" height="516" crop_single=true }}}
         </div>
-                {{/if}}
+
         {{{title}}}
         {{{description}}}
         {{/if_or}}
@@ -186,21 +140,10 @@
 
       {{#asset "imagegroup" size="2"}}
       {{{title}}}
-      {{#if lightbox_enabled}}
-      <div class="my-lightbox-parent">
-          <div class="my-center">
-              <span><i class="icon icon-plus"/></span>
-          </div>
-          <div class="content">
-          {{{imageslider images src="{{{resize original_url width=328 height=246}}}" width="328" height="246" crop_single=true }}}
-      </div></div>
-      {{else}}
       <div class="content">
       {{{imageslider images src="{{{resize original_url width=328 height=246}}}" width="328" height="246" crop_single=true}}}
       </div>
-          {{/if}}
       {{{description}}}
-
       {{/asset}}
 
         {{#asset "videogroup" size="1"}}
@@ -278,19 +221,9 @@
 
         {{#asset "imagegroup" size="1"}}
         {{{title}}}
-        {{#if lightbox_enabled}}
-        <div class="my-lightbox-parent">
-            <div class="my-center">
-                <span><i class="icon icon-plus"/></span>
-            </div>
-            <div class="content">
-            {{{imageslider images src="{{{resize original_url width=208 height=156}}}" width="208" height="156" crop_single=true}}}
-        </div> </div>
-        {{else}}
             <div class="content">
         {{{imageslider images src="{{{resize original_url width=208 height=156}}}" width="208" height="156" crop_single=true}}}
         </div>
-                {{/if}}
         {{{description}}}
 
         {{/asset}}

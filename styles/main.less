@@ -269,8 +269,8 @@ b, strong {
   width: (@column-width * 4) + (@baseline * 3);
 }
 
-
-.asset-type-videogroup .content, .asset-type-imagegroup .content {
+//box shadow for image asset
+ .asset-type-imagegroup .content {
   .border-box();
   border: 1px solid #ddd;
   background-color: #fff;
@@ -303,11 +303,7 @@ b, strong {
     transform: skew(5deg) rotate(5deg);
   }
 
-  .populr-video-player {
-    border: 5px solid #fff;
-    .box-shadow(none);
-    background-color: #fff;
-  }
+
 }
 
 .asset-type-imagegroup .content img {
@@ -337,15 +333,7 @@ b, strong {
     }
   }
 
-//  .asset h2 {
-//    text-align: center;
-//  }
 
-//  .asset .description, .asset .content, .asset .description p, .asset .content p, .asset .content ul, .asset .content ol, .asset .content li, .asset .description ul, .asset .description ol, .asset .description li {
-//    text-align: center;
-//    font-size: @base-font-size * 2;
-//    line-height: @baseline * 2;
-//  }
 }
 
 #main-region {
@@ -506,48 +494,6 @@ b, strong {
 
 // Image asset styling
 
-.my-lightbox-parent{
-  .populr-image-slider{
-    z-index:15;
-  }
-  overflow: visible;
-  position: relative;
-  .my-center{
-    position: absolute;
-    display: table;
-    width:100%;
-    margin-top: -30px ;
-    padding:0;
-    top:50%;
-    left:0;
-    text-align: center;
-    z-index:10;
-    span{
-      padding:20px;
-      height:20px;
-      width:20px;
-      .opacity(0);
-      display: inline-block;
-      .border-radius(100%);
-      background-color:darken(@custom-or-default-color,20%);
-      .icon{
-        position: relative;
-        top: -2px;
-        left: 1px;
-        text-align: center;
-        color: white;
-        font-size:25px;
-        font-style: normal!important;
-
-      }
-    }
-  }
-  &:hover .populr-image-slider img {
-    .opacity(30);
-    transition: all 0.4s ease 0s;
-  }
-  &:hover span{.opacity(100)}
-}
 #populr > #image-slider-themes > .basic(@bg-color: fade(#fff, 50%));
 
 .asset-type-imagegroup {
