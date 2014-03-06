@@ -94,14 +94,6 @@ b, strong {
   font-weight: 700;
 }
 
-#pop-title {
-  .pop-title-text();
-  color: @accent-color;
-  padding-bottom: @baseline - 4px;
-  margin-bottom: @baseline;
-  border-bottom: 4px double #ccc;
-  text-align: center;
-}
 
 // End typography defaults
 /////////////////////////////////////////////////////////////////////////
@@ -109,8 +101,8 @@ b, strong {
   width: 100%;
   height: 500px;
   text-align: center;
-  background:  #333 url("@{base-url}/images/dark_dotted.png") repeat top left;
-  :before {
+  background:  #333 url("@{base-url}/images/background-image.png") repeat top left;
+  &:before {
     content: '';
     display: inline-block;
     height: 100%;
@@ -126,18 +118,32 @@ b, strong {
     vertical-align: middle;
     width: 360px;
     height: 260px;
-    padding-bottom: @baseline - 4px;
-    border-bottom: 4px double #ccc;
-    margin-bottom: @baseline;
-  }
+    background: ghostwhite;
+    background: rgba(255,255,255,0.7);
 
+    /*    padding-bottom: @baseline - 4px;
+        border-bottom: 4px double #ccc;
+        margin-bottom: @baseline;*/
+  }
+/*
   .has-title #pop-logo {
     padding-bottom: 0;
     border-bottom: none;
     margin-bottom: 0;
-  }
+  }*/
 }
 
+
+#pop-title {
+  .pop-title-text();
+//  color: @accent-color;
+  color:#d2d2d2;
+/*  padding-bottom: @baseline - 4px;
+  border-bottom: 4px double #ccc;*/
+  margin-bottom: @baseline;
+  text-align: center;
+  background-color: #1D1D1D;
+}
 
 #main-content {
   width: 940px;
