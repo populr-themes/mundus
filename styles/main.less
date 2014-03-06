@@ -102,12 +102,18 @@ b, strong {
   width: 100%;
   height: 500px;
   text-align: center;
+  background-size: cover;
   background:  #333 url("@{base-url}/images/background-image.png") repeat top left;
 //  to fill the full width
   padding-left: @baseline + 1px;
   padding-right: @baseline + 1px;
   margin-top: -@baseline;
   margin-left: -@baseline - 1px;
+//  fix for custom background
+  div.fullbg-container img {
+    width: 100% !important;
+  }
+
   &:before {
     content: '';
     display: inline-block;
