@@ -1,4 +1,5 @@
 //@import 'bizzare';
+//todo cleaning
 
 // You must import variables.less before importing populr_mixins.less
 @import 'variables';
@@ -6,6 +7,8 @@
 @import 'palette-custom';
 @import 'palette-default';
 @import 'http://populr.me/assets/developers/populr_mixins.less';
+//todo cleanup later
+//@import '../todo/populr_mixins (1)';
 @import 'preboot';
 //@import '//fonts.googleapis.com/css?family=Average&.css';
 @import '//fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400,400italic';
@@ -45,7 +48,7 @@ body {
 }
 
 #pop {
-  padding-top: @baseline;
+//  padding-top: @baseline;
 }
 
 #main-content {
@@ -101,7 +104,7 @@ body {
     font-size: 16px;
   }
   #top-region & {
-    font-size :20px !important;
+    font-size :26px !important;
   }
 }
 
@@ -148,11 +151,11 @@ b, strong {
 /////////////////////////////////////////////////////////////////////////
 #pop-parent-for-bg {
   width: 100%;
-  height: 400px;
+  height: 440px;
   text-align: center;
-  background-size: cover;
-  background:  #333 url("@{base-url}/images/background-image.png") repeat top left;
-//  to fill the full width
+  background:  #333 url("@{base-url}/images/background-image.png")  no-repeat center;
+   background-size: cover;
+  //  to fill the full width
   padding-left: @baseline + 1px;
   padding-right: @baseline + 1px;
   margin-top: -@baseline;
@@ -188,29 +191,61 @@ b, strong {
 //  to fill the full width
   margin-left: -@baseline - 1px;
   margin-right: -@baseline - 1px;
+  padding-left: 90px;
+  padding-right: 90px;
   background-color: #1D1D1D;
   margin-bottom: @baseline;
+  height: 80px;
   #pop-title {
     .pop-title-text();
 
     color: #d2d2d2;
-  text-align: center;
+//  text-align: center;
     .has-links & {
-      width: 70%;
+      width: 600px;
     }
 
   }
 #pop-links {
-  width: 30%;
+  margin-right: 0;
+  margin-left: 0;
+  width: 216px;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 90px;
+  text-align: right;
 }
 
 }
+
+//thin border for all size2,1 assets
+.asset-size-2,.asset-size-1 {
+  border-bottom: 1px solid #ddd;
+
+  &:hover {
+    border-bottom-color: @custom-color;
+    transition: all 0.4s ease 0s;
+  }
+  .ie7 & {
+    border-bottom: none;
+  }
+  #sidebar-region & {
+    border-bottom: none;
+    .asset-title {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
+
+//padding setting
+.asset {
+  padding-bottom: 35px !important;
+
+}
+
 
 #main-content {
-  width: 940px;
+  width: 1040px;
   margin: 0 auto;
 //  border: 1px solid #ddd;
   background-color: #fff;
@@ -219,14 +254,15 @@ b, strong {
 }
 
 .region .columnizer-row {
-  margin-bottom: @baseline * 2;
+  margin-bottom: 30px;
 }
 
 #top-region {
+  text-align: center;
   .border-box();
   float: left;
-  width: 940px;
-  margin: 0 @baseline @baseline * 2 0;
+  width: 1040px;
+  margin: 70px 0 54px 0;
   .asset h2 {
 //    font-size: 30px;
 //    line-height: 54px;
@@ -237,36 +273,56 @@ b, strong {
     }
   }
   .columnizer-row {
-    margin-top: @baseline * 2;
+    margin-top: 35px;
     margin-bottom: 0;
     &:first-child {
       margin-top: 0;
     }
   }
-  .embed {
-    margin: 0 140px;
-  }
+//  .embed {
+//    margin: 0 140px;
+//  }
 }
 
 #main-region {
   float: left;
-  width: (@column-width * 12) + (@baseline * 11);
-  margin-right: @baseline;
+  //  width: (@column-width * 12) + (@baseline * 12);
+  width: 780px;
+//  margin-right: @baseline;
+  margin-right: 50px;
+
   .columnizer-row.columnizer-cols2 {
     .columnizer-col.first {
       margin-left: 0;
     }
     .columnizer-col {
       float: left;
-      width: (@column-width * 6) + (@baseline * 5);
-      margin-left: @baseline;
+      /*width: (@column-width * 6) + (@baseline * 5);
+      margin-left: @baseline;*/
+      width: 377.5px;
+      margin-left: 25px;
     }
   }
 }
 
 #sidebar-region {
   float: right;
-  width: (@column-width * 4) + (@baseline * 3);
+  //  width: (@column-width * 4) + (@baseline * 3);
+  width:210px;
+
+  .asset {
+    margin-bottom: 65px;
+    padding-bottom: 0 !important;
+    .asset-title {
+      margin-bottom: 25px;
+    }
+
+  }
+  .asset-type-embedgroup,.asset-type-imagegroup {
+    .description {
+      margin-top: 25px;
+    }
+  }
 }
 
 //box shadow for image asset
@@ -317,10 +373,11 @@ b, strong {
   border: 5px solid #fff;
 }
 
-.populr-image-slider .enabled {
+//todo check for error
+/*.populr-image-slider .enabled {
   padding-bottom: 10px;
   padding-left: 10px;
-}
+}*/
 
 
 #top-region {
@@ -353,7 +410,7 @@ b, strong {
 }
 
 .documents li {
-  margin-bottom: @baseline / 2;
+  margin-top: 25px;
   &:first-child {
     margin-top: 0;
   }
@@ -476,7 +533,7 @@ b, strong {
   &.file-extension-zip { background-position: -256px -288px; }
 }
 
-.asset-type-videogroup .playlist {
+/*.asset-type-videogroup .playlist {
   margin: 10px 0 0 -10px;
   padding: 0;
   list-style: none;
@@ -490,18 +547,79 @@ b, strong {
 
 .asset-type-videogroup video {
   display: block;
-}
+}*/
 
 // Image asset styling
 
 #populr > #image-slider-themes > .basic(@bg-color: fade(#fff, 50%));
 
 .asset-type-imagegroup {
+  .description {
+    margin-top: 20px;
+  }
 
   &.asset-size-1 {
 
     .left {
-      width: 35%;
+      width: 255px;
+      float: left;
+
+      #top-region & {
+        width:365px ;
+      }
+    }
+
+
+    .asset-inner:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: ' ';
+      clear: both;
+      height: 0;
+    }
+
+    .floated-parent-for-imagegroup-texts {
+      float: right;
+      width: 500px;
+
+      #top-region & {
+        width: 650px;
+      }
+
+    }
+
+  }
+
+
+}
+//Text asset styling
+.asset-type-text {
+  &.asset-size-1 {
+    .description {
+      margin-top: 30px;
+    }
+  }
+  &.asset-size-2 {
+    .description {
+      margin-top: 20px;
+    }
+  }
+}
+//Document asset styling
+.asset-type-documentgroup {
+
+  &.asset-size-1 {
+
+    .description {
+      margin-bottom: 35px;
+      #sidebar-region & {
+        margin-bottom: 25px;
+      }
+    }
+
+    .left {
+      width: 255px;
       float: left;
     }
 
@@ -517,13 +635,20 @@ b, strong {
 
     .floated-parent-for-imagegroup-texts {
       float: right;
-      width: 60%;
+      width: 500px;
 
     }
 
   }
+  &.asset-size-2 {
 
+    .description {
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+  }
 }
+
 
 
 

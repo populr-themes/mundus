@@ -13,6 +13,9 @@
   <!-- This script loads the Populr theming engine. Populr will automatically
        remove it at runtime. -->
   <script src="http://populr.me/assets/developers/themer.js"></script>
+    <!--todo cleanup later-->
+    <!--<script src="todo/themer.js"> </script>-->
+
   <!-- Add any javscript your theme requires here -->
   <script src="js/main.js"></script>
     <!--to make the user specified background as logo background -->
@@ -45,7 +48,7 @@
   {{#if_or title_visible description_visible}}
   <div class="left">
           <div class="content">
-              {{{imageslider images src="{{{resize original_url width=324 height=243}}}" width="324" height="243" crop_single=true }}}
+              {{{imageslider images src="{{{resize original_url width=365 height=274}}}" width="365" height="274" crop_single=true }}}
 
           </div>
   </div>
@@ -117,7 +120,7 @@
         {{#if_or title_visible description_visible}}
         <div class="left">
             <div class="content">
-            {{{imageslider images src="{{{resize original_url width=240 height=180}}}" width="240" height="180" crop_single=true }}}
+            {{{imageslider images src="{{{resize original_url width=255 height=191.25}}}" width="255" height="191.25" crop_single=true }}}
             </div>
 
         </div>
@@ -141,7 +144,7 @@
       {{#asset "imagegroup" size="2"}}
       {{{title}}}
       <div class="content">
-      {{{imageslider images src="{{{resize original_url width=328 height=246}}}" width="328" height="246" crop_single=true}}}
+      {{{imageslider images src="{{{resize original_url width=377 height=283.13}}}" width="377" height="283.13" crop_single=true}}}
       </div>
       {{{description}}}
       {{/asset}}
@@ -163,15 +166,34 @@
         {{/asset}}
 
         {{#asset "documentgroup" size="1"}}
-          {{{title}}}
+
+        {{#if title_visible }}
+        <div class="left">
+            {{{title}}}
+        </div>
+        <div class="floated-parent-for-imagegroup-texts">
+            {{{description}}}
+            <div class="content">
+                <ul class="documents">
+                    {{#documents}}
+                    <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
+                    {{/documents}}
+                </ul>
+            </div>
+        </div>
+        {{else}}
+
         {{{description}}}
         <div class="content">
-              <ul class="documents">
+            <ul class="documents">
                 {{#documents}}
                 <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
                 {{/documents}}
             </ul>
-          </div>
+        </div>
+
+        {{/if}}
+
         {{/asset}}
 
         {{#asset "documentgroup" size="2"}}
@@ -257,13 +279,12 @@
           </div>
           {{{description}}}
         {{/asset}}
-      {{/region}}
+        <div id="meta">
+            {{sharing}}
+        </div>
+        {{/region}}
     </div>
 
-    <div id="meta">
-
-      {{sharing}}
-    </div>
 
   </script>
 </body>
