@@ -649,6 +649,47 @@ b, strong {
   }
 }
 
+//Embed asset styling
+.asset-type-embedgroup {
+  .description {
+    margin-top: 20px;
+  }
+
+  &.asset-size-1 {
+
+    .left {
+      width: 255px;
+      float: left;
+
+      #top-region & {
+        width:365px ;
+      }
+    }
+
+
+    .asset-inner:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: ' ';
+      clear: both;
+      height: 0;
+    }
+
+    .floated-parent-for-imagegroup-texts {
+      float: right;
+      width: 500px;
+
+      #top-region & {
+        width: 650px;
+      }
+
+    }
+
+  }
+
+
+}
 
 
 
