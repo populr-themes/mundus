@@ -48,7 +48,7 @@
   {{#if_or title_visible description_visible}}
   <div class="left">
           <div class="content">
-              {{{imageslider images src="{{{resize original_url width=365 height=274}}}" width="365" height="274" crop_single=true }}}
+              {{{imageslider images src="{{{resize original_url width=365 height=200}}}" width="365" height="200" crop_single=true }}}
 
           </div>
   </div>
@@ -58,7 +58,7 @@
   </div>
   {{else}}
       <div class="content">
-          {{{imageslider images src="{{{resize original_url width=1040 height=780}}}" width="1040" height="780" crop_single=true }}}
+          {{{imageslider images src="{{{resize original_url width=1040 height=585}}}" width="1040" height="585" crop_single=true }}}
       </div>
   {{{title}}}
   {{{description}}}
@@ -133,7 +133,7 @@
         {{#if_or title_visible description_visible}}
         <div class="left">
             <div class="content">
-            {{{imageslider images src="{{{resize original_url width=255 height=191.25}}}" width="255" height="191.25" crop_single=true }}}
+            {{{imageslider images src="{{{resize original_url width=255 height=143}}}" width="255" height="143" crop_single=true }}}
             </div>
 
         </div>
@@ -144,7 +144,7 @@
         {{else}}
 
             <div class="content">
-        {{{imageslider images src="{{{resize original_url width=688 height=516}}}" width="688" height="516" crop_single=true }}}
+        {{{imageslider images src="{{{resize original_url width=688 height=387}}}" width="688" height="387" crop_single=true }}}
         </div>
 
         {{{title}}}
@@ -157,7 +157,7 @@
       {{#asset "imagegroup" size="2"}}
       {{{title}}}
       <div class="content">
-      {{{imageslider images src="{{{resize original_url width=377 height=283.13}}}" width="377" height="283.13" crop_single=true}}}
+      {{{imageslider images src="{{{resize original_url width=377 height=212}}}" width="377" height="212" crop_single=true}}}
       </div>
       {{{description}}}
       {{/asset}}
@@ -240,6 +240,7 @@
       {{/asset}}
 
         {{#asset "embedgroup" size="2" width="340"}}
+        {{{title}}}
         <div class="embeds">
             {{#embeds}}
             <div class="embed embed-type-{{{css_safe_provider}}}">
@@ -247,7 +248,6 @@
             </div>
             {{/embeds}}
         </div>
-        {{{title}}}
         {{{description}}}
         {{/asset}}
       {{/region}}
