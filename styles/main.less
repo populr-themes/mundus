@@ -44,7 +44,7 @@
 
 
 body {
-  background: #333 url("@{base-url}/images/tweed.png") repeat top left;
+  background: #333 url("@{base-url}/images/dark_linen.png") repeat top left;
 }
 
 #pop {
@@ -156,10 +156,10 @@ b, strong {
   background:  #333 url("@{base-url}/images/background-image.png")  no-repeat center;
    background-size: cover;
   //  to fill the full width
-  padding-left: @baseline + 1px;
-  padding-right: @baseline + 1px;
+  padding-left: @baseline ;
+  padding-right: @baseline ;
   margin-top: -@baseline;
-  margin-left: -@baseline - 1px;
+  margin-left: -@baseline ;
 //  fix for custom background
   div.fullbg-container img {
     width: 100% !important;
@@ -186,6 +186,9 @@ b, strong {
 
 }
 
+div#pop-parent-for-title-links {
+  min-height: 80px;
+}
 #pop-parent-for-title-links {
   position: relative;
 //  to fill the full width
