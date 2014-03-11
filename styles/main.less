@@ -195,7 +195,7 @@ div#pop-parent-for-title-links {
   margin-left: -@baseline;
   background-color: #1D1D1D;
   margin-bottom: @baseline;
-  min-height: 80px;
+  height: 80px;
   width: 1080px;
   display: table;
   #pop-title {
@@ -557,6 +557,17 @@ div#pop-parent-for-title-links {
 // Image asset styling
 
 #populr > #image-slider-themes > .basic(@bg-color: fade(#fff, 50%));
+
+//fixes on slider
+.populr-image-slider .slideshow .slide img {
+  width: auto;
+}
+.populr-image-slider .slideshow:hover .prevnext.cycle-next, .populr-image-slider .slideshow.hover .prevnext.cycle-next {
+  right: 23px;
+  #sidebar-region & {
+    right: 18px;
+  }
+}
 
 .asset-type-imagegroup {
   .description {
