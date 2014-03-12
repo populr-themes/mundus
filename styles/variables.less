@@ -20,6 +20,13 @@
 @baseline: 20px;
 @base-font-size: 18px;
 
+
+// clearfix for columnizer rows
+.columnizer-row:after { display: block; visibility: hidden; height: 0; clear: both; content: ' '; }
+.columnizer-row { *zoom: 1; }
+
+//ie fix for float
+.lt-ie8 .columnizer-row {clear :both}
 // If you've set @populr-theme-version to 1, we recommend using these mixins.
 #populr > .link-button(@custom-color);
 #populr > .icon(@custom-color);  //todo change this icon background
