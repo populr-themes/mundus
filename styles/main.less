@@ -377,16 +377,20 @@ div#pop-parent-for-title-links {
 //   box shadow fixes
     width: 100% !important;
    .populr-image-slider .slideshow {
+
      border:1px solid #ccc;
      width: 100% !important;
-
-     .slide img {
-       padding-right: 10px;
+     .slide {
        width: 100%;
+       img {
+         padding-right: 10px;
+         width: 100%;
+       }
+       a {
+         width: 100% !important;
+       }
      }
-     .slide a {
-       width: 100% !important;
-     }
+
    }
 
 
@@ -584,10 +588,7 @@ div#pop-parent-for-title-links {
 
 #populr > #image-slider-themes > .basic(@bg-color: fade(#fff, 50%));
 
-//fixes on slider
-.populr-image-slider .slideshow .slide img {
-  width: 100%;
-}
+
 /*.populr-image-slider .slideshow:hover .prevnext.cycle-next, .populr-image-slider .slideshow.hover .prevnext.cycle-next {
   right: 23px;
   #sidebar-region & {
