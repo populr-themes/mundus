@@ -166,23 +166,31 @@ b, strong {
     width: 100% !important;
   }
 
-  &:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -0.25em; /* Adjusts for spacing */
-
-    /* For visualization
-    background: #808080; width: 5px;
-    */
-  }
+//  &:before {
+//    content: '';
+//    display: inline-block;
+//    height: 100%;
+//    vertical-align: middle;
+//    margin-right: -0.25em; /* Adjusts for spacing */
+//
+//    /* For visualization
+//    background: #808080; width: 5px;
+//    */
+//  }
   #pop-logo {
-    display: inline-block;
-    vertical-align: middle;
-    width: 360px;
-    height: 260px;
-
+    margin: 0 auto;
+    min-width: 360px;
+    min-height: 260px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    img {
+        position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -180px;
+      margin-top: -130px;
+    }
   }
 
 }
@@ -376,14 +384,15 @@ div#pop-parent-for-title-links {
 
 //   box shadow fixes
     width: 100% !important;
-   .populr-image-slider .slideshow {
+   .populr-image-slider
+   {
+   .slideshow {
 
      border:1px solid #ccc;
      width: 100% !important;
      .slide {
        width: 100%;
        img {
-         padding-right: 10px;
          width: 100%;
        }
        a {
@@ -392,7 +401,18 @@ div#pop-parent-for-title-links {
      }
 
    }
+     .fancybox-enabled {
+       img {
+         padding-right: 10px;
+       }
+     }
 
+     //forcing height to treat some stubborn issues
+     .enabled {
+
+     }
+
+   }
 
 
 }
@@ -410,7 +430,7 @@ div#pop-parent-for-title-links {
 
 //todo check for error
 .populr-image-slider .enabled {
-  padding-bottom: 10px;
+//  padding-bottom: 10px;
 //  padding-left: 10px;
 }
 
