@@ -1,11 +1,35 @@
 @base-url: '..';
+
+@custom-color:@custom-or-default-color;
+@populr-theme-version: 1;
 @accent-color: #e67362;
 @background-color: #111111;
-@headline-font-family: 'AbrilFatface';
+@import '//fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400,400italic';
+@import '//fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700';
+@import '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800';
+
+@body-font-family: 'Sorts Mill Goudy', serif;
+@headline-font-family: 'Roboto Condensed', sans-serif;
 @headline-font-weight: normal;
+@pop-title-font-family:'Open Sans', sans-serif;
+@pop-title-font-size:30px;
 @compliment-color: lighten(spin(@accent-color, 180), 20%);
 @text-color: #555;
 
 @column-width: 40px;
 @baseline: 20px;
-@base-font-size: 13px;
+@base-font-size: 18px;
+
+
+// clearfix for columnizer rows
+.columnizer-row:after { display: block; visibility: hidden; height: 0; clear: both; content: ' '; }
+.columnizer-row { *zoom: 1; }
+
+//ie fix for float
+.lt-ie8{
+
+ .columnizer-row {clear :both;}
+}
+// If you've set @populr-theme-version to 1, we recommend using these mixins.
+#populr > .link-button(@custom-color);
+#populr > .icon(@custom-color);  //todo change this icon background

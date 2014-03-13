@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html itemscope>
 <head>
   <meta charset="utf-8">
   <!-- Name of yur theme -->
   <title>Mundus</title>
 
-  <palette class="palette-default" name="Default" preview="#ffffff,#e67362">
-  <palette class="palette-custom" preview="custom">
 
+      <meta itemprop="palette" content="palette-default" title="Default" data-preview="#ffffff,#1d1d1d">
+      <meta itemprop="palette" content="palette-custom" title="Custom" data-preview="custom">
   <!-- Add any styles your theme requires here -->
-  <link rel="stylesheet/less" type="text/css" href="/styles/main.less">
+  <link rel="stylesheet/less" type="text/css" href="styles/main.less">
   <!-- This script loads the Populr theming engine. Populr will automatically
        remove it at runtime. -->
   <script src="http://populr.me/assets/developers/themer.js"></script>
+    <!--todo cleanup later-->
+    <!--<script src="todo/themer.js"> </script>-->
+
   <!-- Add any javscript your theme requires here -->
-  <script src="/js/main.js"></script>
+  <script src="js/main.js"></script>
+    <!--to make the user specified background as logo background -->
+    <meta itemprop="backgroundContainer" content="#pop-parent-for-bg">
+
+    <!--adding media queries support in ltie8-->
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
 </head>
 <body>
   <!-- Put your theme's inside this script tag. The script tag will
        prevent issues with quote escaping and invalid markup. -->
   <script id="theme" type="text/x-handlebars-template">
+  <div id="pop-parent-for-bg">
+  {{logo max_width=360 max_height=260}}
+  </div>
+          <div id="pop-parent-for-title-links">
     {{{title}}}
+    {{pop_links}}
+          </div>
 
-    {{#region "columnizer" id="top-region" max_cols="1" dummy_content="T-1" default_content="T-1" max_auto_assets="1"}}
+    {{#region "columnizer" id="top-region" max_cols="1" dummy_content="T-1|I-2|D-3|V-1|E-1" default_content="T-1" max_auto_assets="1"}}
 
       {{#asset "text" size="1"}}
         {{{title}}}
@@ -31,47 +47,76 @@
         </div>
       {{/asset}}
 
-      {{#asset "imagegroup" size="1"}}
-        {{{title}}}
-        <div class="content">
-        {{{imageslider images width="928" height="486"}}}
-        </div>
-        {{{description}}}
-      {{/asset}}
 
-      {{#asset "videogroup" size="1"}}
-        {{{title}}}
-        <div class="content">
-        {{{videoplayer contents width="928" height="696" resolution="large"}}}
-        </div>
-        {{{description}}}
-      {{/asset}}
+  {{#asset "imagegroup" size="1"}}
+
+  {{#if_or title_visible description_visible}}
+  <div class="left">
+          <div class="content">
+              {{{imageslider images src="{{{resize original_url width=365 height=200}}}" width="365" height="200" crop_single=true }}}
+
+          </div>
+  </div>
+  <div class="floated-parent-for-imagegroup-texts">
+      {{{title}}}
+      {{{description}}}
+  </div>
+  {{else}}
+      <div class="content">
+          {{{imageslider images src="{{{resize original_url width=1030 height=500}}}" width="1030" height="500" crop_single=true }}}
+      </div>
+  {{{title}}}
+  {{{description}}}
+  {{/if_or}}
+
+  {{/asset}}
+
 
       {{#asset "documentgroup" size="1"}}
         {{{title}}}
-        <div class="content">
-          <ul class="documents">
-          {{#documents}}
-            <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
-          {{/documents}}
+    {{{description}}}
+    <div class="content">
+            <ul class="documents">
+              {{#documents}}
+              <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
+              {{/documents}}
           </ul>
         </div>
-        {{{description}}}
       {{/asset}}
 
-      {{#asset "embedgroup" size="1" width="660"}}
-        {{{title}}}
-        <div class="content">
-        {{#embeds}}
-          <div class="embed">{{{html}}}</div>
-        {{/embeds}}
-        </div>
-        {{{description}}}
-      {{/asset}}
+  {{#asset "embedgroup" size="1" width="1040"}}
+
+  {{#if_or title_visible description_visible}}
+  <div class="left">
+      <div class="embeds">
+          {{#embeds}}
+          <div class="embed embed-type-{{{css_safe_provider}}}">
+              {{{html}}}
+          </div>
+          {{/embeds}}
+      </div>
+  </div>
+  <div class="floated-parent-for-imagegroup-texts">
+      {{{title}}}
+      {{{description}}}
+  </div>
+  {{else}}
+  <div class="embeds">
+      {{#embeds}}
+      <div class="embed embed-type-{{{css_safe_provider}}}">
+          {{{html}}}
+      </div>
+      {{/embeds}}
+  </div>
+  {{{title}}}
+  {{{description}}}
+  {{/if_or}}
+
+  {{/asset}}
     {{/region}}
 
     <div class="clearfix">
-      {{#region "columnizer" id="main-region" max_cols="2" dummy_content="D-4|T-1|I-3|V-1|E-1|I-3,T-1|V-1,E-1" default_content="T-1|I-3" max_auto_assets="0"}}
+      {{#region "columnizer" id="main-region" max_cols="2" dummy_content="T-1|T-1,T-1|I-3|I-3,I-2|D-4|D-2,D-4|V-1|V-1,V-1|E-1|E-1,E-1|T-1,I-3|T-1,D-3|T-1,V-1|T-1,E-1|I-3,D-3|I-3,V-1|I-2,E-1|D-3,V-1|D-3,E-1|V-1,E-1" default_content="T-1|I-3" max_auto_assets="0"}}
 
         {{#asset "text" size="1"}}
           {{{title}}}
@@ -87,85 +132,133 @@
           </div>
         {{/asset}}
 
+
         {{#asset "imagegroup" size="1"}}
-          {{{title}}}
-          <div class="content">
-          {{{imageslider images width="688" height="516"}}}
-          </div>
-          {{{description}}}
+
+        {{#if_or title_visible description_visible}}
+        <div class="left">
+            <div class="content">
+            {{{imageslider images src="{{{resize original_url width=247 height=143}}}" width="247" height="143" crop_single=true }}}
+            </div>
+
+        </div>
+        <div class="floated-parent-for-imagegroup-texts">
+            {{{title}}}
+            {{{description}}}
+        </div>
+        {{else}}
+
+            <div class="content">
+        {{{imageslider images src="{{{resize original_url width=688 height=387}}}" width="688" height="387" crop_single=true }}}
+        </div>
+
+        {{{title}}}
+        {{{description}}}
+        {{/if_or}}
+
         {{/asset}}
 
-        {{#asset "imagegroup" size="2"}}
-          {{{title}}}
-          <div class="content">
-          {{{imageslider images width="328" height="246"}}}
-          </div>
-          {{{description}}}
-        {{/asset}}
 
-        {{#asset "videogroup" size="1"}}
-          {{{title}}}
-          <div class="content">
-          {{{videoplayer contents width="688" height="516" resolution="large"}}}
-          </div>
-          {{{description}}}
-        {{/asset}}
+      {{#asset "imagegroup" size="2"}}
+      {{{title}}}
+      <div class="content">
+      {{{imageslider images src="{{{resize original_url width=367 height=212}}}" width="367" height="212" crop_single=true}}}
+      </div>
+      {{{description}}}
+      {{/asset}}
 
-        {{#asset "videogroup" size="2"}}
-          {{{title}}}
-          <div class="content">
-          {{{videoplayer contents width="328" height="246" resolution="medium"}}}
-          </div>
-          {{{description}}}
-        {{/asset}}
+
+
+
 
         {{#asset "documentgroup" size="1"}}
-          {{{title}}}
-          <div class="content">
+
+        {{#if title_visible }}
+        <div class="left">
+            {{{title}}}
+        </div>
+        <div class="floated-parent-for-imagegroup-texts">
+            {{{description}}}
+            <div class="content">
+                <ul class="documents">
+                    {{#documents}}
+                    <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
+                    {{/documents}}
+                </ul>
+            </div>
+        </div>
+        {{else}}
+
+        {{{description}}}
+        <div class="content">
             <ul class="documents">
-            {{#documents}}
-              <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
-            {{/documents}}
+                {{#documents}}
+                <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
+                {{/documents}}
             </ul>
-          </div>
-          {{{description}}}
+        </div>
+
+        {{/if}}
+
         {{/asset}}
 
         {{#asset "documentgroup" size="2"}}
           {{{title}}}
-          <div class="content">
-            <ul class="documents">
-            {{#documents}}
-              <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
-            {{/documents}}
+        {{{description}}}
+        <div class="content">
+              <ul class="documents">
+                {{#documents}}
+                <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
+                {{/documents}}
             </ul>
           </div>
-          {{{description}}}
         {{/asset}}
 
-        {{#asset "embedgroup" size="1" width="700"}}
-          {{{title}}}
-          <div class="content">
-          {{#embeds}}
-            <div class="embed">{{{html}}}</div>
-          {{/embeds}}
+      {{#asset "embedgroup" size="1" width="688"}}
+
+      {{#if_or title_visible description_visible}}
+      <div class="left">
+          <div class="embeds">
+              {{#embeds}}
+              <div class="embed embed-type-{{{css_safe_provider}}}">
+                  {{{html}}}
+              </div>
+              {{/embeds}}
           </div>
+      </div>
+      <div class="floated-parent-for-imagegroup-texts">
+          {{{title}}}
           {{{description}}}
-        {{/asset}}
+      </div>
+      {{else}}
+      <div class="embeds">
+          {{#embeds}}
+          <div class="embed embed-type-{{{css_safe_provider}}}">
+              {{{html}}}
+          </div>
+          {{/embeds}}
+      </div>
+      {{{title}}}
+      {{{description}}}
+      {{/if_or}}
+
+      {{/asset}}
 
         {{#asset "embedgroup" size="2" width="340"}}
-          {{{title}}}
-          <div class="content">
-          {{#embeds}}
-            <div class="embed">{{{html}}}</div>
-          {{/embeds}}
-          </div>
-          {{{description}}}
+        {{{title}}}
+        <div class="embeds">
+            {{#embeds}}
+            <div class="embed embed-type-{{{css_safe_provider}}}">
+                {{{html}}}
+            </div>
+            {{/embeds}}
+        </div>
+        {{{description}}}
         {{/asset}}
       {{/region}}
 
 
-      {{#region "columnizer" id="sidebar-region" max_cols="1" dummy_content="T-1" default_content="T-1" max_auto_assets="2"}}
+      {{#region "columnizer" id="sidebar-region" max_cols="1" dummy_content="T-1|I-1|I-3|V-1|D-2|E-1" default_content="T-1" max_auto_assets="2"}}
 
         {{#asset "text" size="1"}}
           {{{title}}}
@@ -174,14 +267,15 @@
           </div>
         {{/asset}}
 
+
+
         {{#asset "imagegroup" size="1"}}
-          {{{title}}}
-          <div class="content">
-          {{#images}}
-            <img src="{{{resize original_url width="208" height="0"}}}" alt="{{title}}" />
-          {{/images}}
-          </div>
-          {{{description}}}
+        {{{title}}}
+            <div class="content">
+        {{{imageslider images src="{{{resize original_url width=208 height=156}}}" width="208" height="156" crop_single=true}}}
+        </div>
+        {{{description}}}
+
         {{/asset}}
 
         {{#asset "videogroup" size="1"}}
@@ -194,14 +288,14 @@
 
         {{#asset "documentgroup" size="1"}}
           {{{title}}}
-          <div class="content">
-            <ul class="documents">
-            {{#documents}}
-              <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
-            {{/documents}}
+        {{{description}}}
+        <div class="content">
+              <ul class="documents">
+                {{#documents}}
+                <li><a href="{{original_url}}"><span class="file-extension file-extension-{{extension}}"></span>{{title}} <span class="filesize">({{{format_file_size source_file_size}}})</span></a></li>
+                {{/documents}}
             </ul>
           </div>
-          {{{description}}}
         {{/asset}}
 
         {{#asset "embedgroup" size="1" width="220"}}
@@ -213,13 +307,12 @@
           </div>
           {{{description}}}
         {{/asset}}
-      {{/region}}
+        {{/region}}
     </div>
 
-    <div id="meta">
-      {{pop_links}}
+  <div id="meta">
       {{sharing}}
-    </div>
+  </div>
 
   </script>
 </body>
