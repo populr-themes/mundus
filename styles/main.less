@@ -348,7 +348,6 @@ div#pop-parent-for-title-links {
   position: relative;
   .box-shadow(0 0 4px rgba(0, 0, 0, 0.2) ~',' inset 0 0 50px rgba(0, 0, 0, 0.1));
   z-index: 1;
-   width:99% !important ;
   &:before, &:after {
     position: absolute;
     width: 40%;
@@ -375,6 +374,22 @@ div#pop-parent-for-title-links {
     transform: skew(5deg) rotate(5deg);
   }
 
+//   box shadow fixes
+    width: 100% !important;
+   .populr-image-slider .slideshow {
+     border:1px solid #ccc;
+     width: 100% !important;
+
+     .slide img {
+       padding-right: 10px;
+       width: 100%;
+     }
+     .slide a {
+       width: 100% !important;
+     }
+   }
+
+
 
 }
 
@@ -392,7 +407,7 @@ div#pop-parent-for-title-links {
 //todo check for error
 .populr-image-slider .enabled {
   padding-bottom: 10px;
-  padding-left: 10px;
+//  padding-left: 10px;
 }
 
 
@@ -678,6 +693,10 @@ div#pop-parent-for-title-links {
 
 //Embed asset styling
 .asset-type-embedgroup {
+  iframe {
+    width: 100%;
+    height: auto;
+  }
   .description {
     margin-top: 20px;
   }
